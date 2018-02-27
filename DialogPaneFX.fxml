@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Organizer.DialogController"
+            prefHeight="400.0" prefWidth="600.0">
+    <headerText>
+        Ponizej podaj tytul zdarzenia, opis oraz wybierz date
+    </headerText>
+    <content>
+        <GridPane>
+            <Label text="Temat" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="shortDescriptionNewField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Opis" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextArea fx:id="TextAreaNewField" GridPane.rowIndex="1" GridPane.columnIndex="1" wrapText="true"/>
+            <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Wybierz date"/>
+            <DatePicker fx:id="DatePickerNewField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <!--<Label  text="Uzupelnij pola!" fx:id="warning" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="3" visible="false">-->
+                <!--<font>-->
+                    <!--<Font size="40" name="Arial Bold"/>-->
+                <!--</font>-->
+            <!--</Label>-->
+        </GridPane>
+    </content>
+</DialogPane>

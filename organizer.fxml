@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Organizer.Controller">
+    <top>
+        <VBox>
+        <MenuBar>
+            <Menu text="Plik">
+                <MenuItem onAction="#showNewItemWindow" text="Nowy obowiazek" />
+                <MenuItem onAction="#exitApp" text="Wyjdz" />
+            </Menu>
+        </MenuBar>
+                <ToolBar snapToPixel="false">
+                    <HBox spacing="20">
+                        <Button onAction="#showNewItemWindow">
+                            <tooltip>
+                                <Tooltip text="Stworz nowy rekord" />
+                            </tooltip>
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@/toolbarButtonGraphics/general/New16.gif" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button onAction="#showEditItem">
+                            <tooltip>
+                                <Tooltip text="Edytuj rekord" />
+                            </tooltip>
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@/toolbarButtonGraphics/general/Edit16.gif" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <CheckBox fx:id="important" onAction="#filterTheList" text="Pokaż pilne sprawy!" textAlignment="RIGHT" textFill="RED">
+                  <font>
+                     <Font name="Droid Serif Bold Italic" size="18.0" />
+                  </font></CheckBox>
+                    </HBox>
+            <CheckBox fx:id="itsDone" layoutX="50.0" mnemonicParsing="false" text="Zrobione :)" textFill="#0d0a78" onAction="#itsDoneChecked">
+               <font>
+                  <Font name="Monospaced Bold Italic" size="19.0" />
+               </font>
+            </CheckBox>
+                </ToolBar>
+        </VBox>
+    </top>
+    <left>
+        <ListView fx:id="ItemsListView" onKeyPressed="#handleOnDeletePressed" />
+    </left>
+    <center>
+       <VBox>
+           <TextArea fx:id="ItemsTextArea" wrapText="true" VBox.vgrow="ALWAYS">
+                   <font>
+                       <Font size="15" />
+                   </font>
+           </TextArea>
+        <HBox>
+            <Label text="Planowany termin: ">
+                <font>
+                    <Font name="Arial Bold" size="20" />
+                </font>
+            </Label>
+        <Label fx:id="deadlineLabel" style="-fx-background-color: white">
+                <font>
+                    <Font name="Arial BOld" size="20" />
+                </font>
+        </Label>
+            <HBox alignment="BOTTOM_RIGHT" pickOnBounds="false" snapToPixel="false" translateX="100.0">
+                <DatePicker fx:id="date" onAction="#chooseDateOnCalendar" translateY="2.0">
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets></DatePicker>
+                <Button fx:id="back" onAction="#backToList" translateY="2.0">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/toolbarButtonGraphics/general/Undo16.gif" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+               <opaqueInsets>
+                  <Insets right="2.0" />
+               </opaqueInsets>
+               <rotationAxis>
+                  <Point3D />
+               </rotationAxis>
+               <padding>
+                  <Insets bottom="4.0" />
+               </padding>
+            </HBox>
+        </HBox>
+       </VBox>
+
+    </center>
+
+
+
+</BorderPane>
